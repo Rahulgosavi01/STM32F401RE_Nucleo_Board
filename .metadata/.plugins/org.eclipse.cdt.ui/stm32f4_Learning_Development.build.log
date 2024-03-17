@@ -1,0 +1,10 @@
+21:00:59 **** Incremental Build of configuration Debug for project stm32f4_Learning_Development ****
+make -j8 all 
+arm-none-eabi-size  stm32f4_Learning_Development.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5756	     20	   1572	   7348	   1cb4	stm32f4_Learning_Development.elf
+Finished building: default.size.stdout
+ 
+
+21:01:00 Build Finished. 0 errors, 0 warnings. (took 908ms)
+
