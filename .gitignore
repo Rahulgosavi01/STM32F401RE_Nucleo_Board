@@ -1,1 +1,7 @@
 *.log
+*.su
+*.o
+*.elf
+*.list
+*.cyclo
+*.xmi
