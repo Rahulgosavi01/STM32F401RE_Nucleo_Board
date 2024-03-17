@@ -21,6 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+uint8_t test_var = 0;
 
 /* USER CODE END Includes */
 
