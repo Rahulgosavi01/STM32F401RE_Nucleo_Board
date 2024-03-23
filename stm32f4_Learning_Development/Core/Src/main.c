@@ -91,18 +91,16 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM10_Init();
   /* USER CODE BEGIN 2 */
+  /* TIM10 is used to count time elapsed between two events in microsecond*/
   HAL_TIM_Base_Start(&htim10);
-  uint16_t g_time_counter = 0;
+  /* __HAL_TIM_GET_COUNTER(&htim10); */
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  g_time_counter = __HAL_TIM_GET_COUNTER(&htim10);
-	  HAL_Delay(1);
-	  g_time_counter = __HAL_TIM_GET_COUNTER(&htim10) - g_time_counter;
-	  printf("%d\r\n",g_time_counter);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
