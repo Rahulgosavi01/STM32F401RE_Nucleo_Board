@@ -8,3 +8,7 @@
 *.snap
 *.map
 .metadata/
+*.mk
+*.d
+*.launch
+*.index
