@@ -90,9 +90,14 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   MX_TIM10_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   /* TIM10 is used to count time elapsed between two events in microsecond*/
   HAL_TIM_Base_Start(&htim10);
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+
+  /* prescalar (16 - 1) [(Counter Compare 500000) / (auto reload register 1000000)] */
+  __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,500000); /* Duty cycle of 50 %*/
   /* __HAL_TIM_GET_COUNTER(&htim10); */
 
   /* USER CODE END 2 */
