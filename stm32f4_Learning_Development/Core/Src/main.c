@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "i2c.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -57,6 +58,9 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint8_t dataRead[64];
+
+uint8_t dataWrite[64];
 
 /* USER CODE END 0 */
 
@@ -91,6 +95,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM10_Init();
   MX_TIM2_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   /* TIM10 is used to count time elapsed between two events in microsecond*/
   HAL_TIM_Base_Start(&htim10);
@@ -99,6 +104,17 @@ int main(void)
   /* prescalar (16 - 1) [(Counter Compare 500000) / (auto reload register 1000000)] */
   __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,500000); /* Duty cycle of 50 %*/
   /* __HAL_TIM_GET_COUNTER(&htim10); */
+
+
+  for (int i=0; i<64; i++)
+  {
+	  dataWrite[i] = i;
+  }
+
+//  EEPROM_Write(7, 50, dataWrite, 64);
+//  HAL_Delay(10);
+  EEPROM_Read(7, 0, dataRead, 64);
+  EEPROM_Read(8, 0, dataRead, 64);
 
   /* USER CODE END 2 */
 

@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include "usart.h"
 #include "app_usart_debug.h"
+#include "app_eeprom.h"
 
 
 
